@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { GoodList, GoodListData } from './Module/Test/Components/GoodsList';
+import { TestList } from './Module/Test/Components/Form';
 
 const data: GoodListData[] = [
   {
@@ -45,7 +45,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    <GoodList list={data}/>
+    {/* <GoodList list={data}/> */}
+    <TestList list={['1','2']}/>
   </React.StrictMode>
 );
 
