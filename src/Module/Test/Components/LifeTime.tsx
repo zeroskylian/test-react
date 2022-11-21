@@ -1,22 +1,21 @@
-import React from "react";
-import { root } from "../../../index";
 import { ThemeContext } from "../../../Const";
+import React, { FC } from "react";
+import { Button } from "antd";
+import "antd/dist/reset.css";
 
-class Car extends React.Component<{ name: string }> {
-  componentDidMount(): void {
-    console.log("Car--componentDidMount");
-  }
+interface SonData {
+  id: number;
+  name: string;
+  age: number;
+}
 
+class Son extends React.Component<SonData> {
   componentDidUpdate(
-    prevProps: Readonly<{ name: string }>,
+    prevProps: Readonly<SonData>,
     prevState: Readonly<{}>,
     snapshot?: any
   ): void {
     console.log(`Car--componentDidUpdate===${prevProps}===${prevState}`);
-  }
-
-  componentWillUnmount(): void {
-    console.log("Car--componentWillUnmount");
   }
 
   static contextType = ThemeContext;
@@ -24,27 +23,22 @@ class Car extends React.Component<{ name: string }> {
   context!: React.ContextType<typeof ThemeContext>;
 
   render(): React.ReactNode {
-    console.log("Car--render");
     return (
-      <ThemeContext.Consumer>
-        {(theme) => {
-          return (<div>
-            注意看，这个人拥有一辆{this.props.name}==={this.context.value}
-          </div>)
-        }}
-      </ThemeContext.Consumer>
+      <li>
+        姓名：{this.props.name}，年龄：{this.props.age}
+        <input type="text" name="" id="" />
+      </li>
     );
   }
 }
 
 export class Person extends React.Component {
-  state = { name: "奥迪" };
-
-  ref = React.createRef<Car>();
-
-  componentDidMount(): void {
-    console.log("Person--componentDidMount");
-  }
+  state: { sons: SonData[] } = {
+    sons: [
+      { id: 1, name: "小明", age: 12 },
+      { id: 2, name: "小红", age: 11 },
+    ],
+  };
 
   componentDidUpdate(
     prevProps: Readonly<{ name: string }>,
@@ -54,17 +48,12 @@ export class Person extends React.Component {
     console.log(`Person--componentDidUpdate===${prevProps}===${prevState}`);
   }
 
-  componentWillUnmount(): void {
-    console.log("Person--componentWillUnmount");
-  }
-
   handleSwitchCar = () => {
-    this.context.value = 2;
-    this.setState({ name: "奔驰" });
-  };
-
-  handleCarScrapped = () => {
-    root.unmount();
+    let newSon = { id: this.state.sons.length + 1, name: "小王", age: 12 };
+    let sons = [newSon, ...this.state.sons];
+    this.setState({
+      sons,
+    });
   };
 
   static contextType = ThemeContext;
@@ -72,11 +61,15 @@ export class Person extends React.Component {
   context!: React.ContextType<typeof ThemeContext>;
 
   render(): React.ReactNode {
-    console.log("Person--render");
     return (
-      <div>
-        <Car ref={this.ref} name={this.state.name} />
-        <button onClick={this.handleSwitchCar}>换车</button>
+      <div style={{ marginTop: "20px", marginLeft: "20px" }}>
+        <ul>
+          {this.state.sons.map((item, index) => {
+            //  key 用index 在 输入框有文字的情况会造成数据错误
+            return <Son key={item.id} {...item} />;
+          })}
+        </ul>
+        <Button onClick={this.handleSwitchCar}>生孩子</Button>
       </div>
     );
   }
