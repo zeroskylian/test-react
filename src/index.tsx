@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import { Person } from "./Module/Test/Components/LifeTime";
+import { News } from "./Module/Test/Components/LifeTime";
 import { ThemeContext } from "./Const";
 
 export const root = ReactDOM.createRoot(
@@ -11,7 +11,7 @@ export const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ThemeContext.Provider value={{ value: 1 }}>
-      <Person />
+      <News />
     </ThemeContext.Provider>
   </React.StrictMode>
 );
