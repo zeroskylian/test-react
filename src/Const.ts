@@ -6,4 +6,5 @@ export interface ThemeContextInterface {
 export const ThemeContext = React.createContext<ThemeContextInterface>({
   value: 1,
 });
+
 ThemeContext.displayName = 'ThemeContext'

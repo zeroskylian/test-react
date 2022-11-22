@@ -1,18 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import { News } from "./Module/Test/Components/LifeTime";
-import { ThemeContext } from "./Const";
+import { TestContext } from "./Module/Test/Components/TestContext";
 
 export const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
+class GetTime extends React.Component {
+
+  render() {
+    let date = new Date()
+    return (
+      <div>
+        get context value is {date.toTimeString()}
+      </div>
+    );
+  }
+}
+
 root.render(
   <React.StrictMode>
-    <ThemeContext.Provider value={{ value: 1 }}>
-      <News />
-    </ThemeContext.Provider>
+    <TestContext />
+    <GetTime />
   </React.StrictMode>
 );
 
