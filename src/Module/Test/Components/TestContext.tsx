@@ -2,22 +2,26 @@ import React, { Component } from "react";
 import { ThemeContext, ThemeContextInterface } from "../../../Const";
 import { Button } from "antd";
 
-export class TestContext extends Component {
+interface TestContextState {
+  value: { value: number };
+  show: boolean;
+}
 
-  state: { value: number } = { value: 1 };
+export class TestContext extends Component {
+  state: TestContextState = { value: { value: 1 }, show: false };
 
   handleChangeValue = () => {
-    this.setState({ value: 2 })
-  }
+    this.setState({ value: { value: 2 } });
+  };
 
   render() {
     return (
       <div>
-        <ThemeContext.Provider value={this.state}>
-        <TestContextGetValue />
-        <TestContextGetConsumer />
-        <Button onClick={this.handleChangeValue}>Change</Button>
-      </ThemeContext.Provider>
+        <ThemeContext.Provider value={this.state.value}>
+          <TestContextGetValue />
+          <TestContextGetConsumer />
+          <Button onClick={this.handleChangeValue}>Change</Button>
+        </ThemeContext.Provider>
       </div>
     );
   }
@@ -31,10 +35,9 @@ class TestContextGetValue extends Component {
   context!: React.ContextType<typeof ThemeContext>;
 
   render() {
-    let date = new Date()
     return (
       <div>
-        get context value is {date.toTimeString()}
+        <input type="text" />
       </div>
     );
   }

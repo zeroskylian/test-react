@@ -13,7 +13,7 @@ class GetTime extends React.Component {
     let date = new Date()
     return (
       <div>
-        get context value is {date.toTimeString()}
+        Time is {date.toTimeString()}
       </div>
     );
   }
