@@ -37,7 +37,6 @@ class ListItem extends Component<{
 
   private handleCheckChange = (event: CheckboxChangeEvent) => {
     let value = event.target.checked;
-    console.log(value);
     this.props.updateDoneCallback(this.props.item.id, value);
   };
 

@@ -38,6 +38,22 @@ export class Todo extends Component {
     this.setState({ list: filter });
   };
 
+  private selectAll = (allDone: boolean) => {
+    let list = this.state.list;
+    list.forEach((todo) => {
+      todo.done = allDone;
+    });
+    this.setState({ list: list });
+  };
+
+  private deleteAllDoneItem = () => {
+    let list = this.state.list;
+    let filter = list.filter((item) => {
+      return !item.done;
+    });
+    this.setState({ list: filter });
+  };
+
   render() {
     return (
       <div
@@ -53,7 +69,11 @@ export class Todo extends Component {
           updateDoneCallback={this.updateTodoDone}
           deleteItemCallBack={this.deleteTodoItem}
         />
-        <TodoFooter></TodoFooter>
+        <TodoFooter
+          list={this.state.list}
+          selectAllCallback={this.selectAll}
+          deleteAlldoneCallback={this.deleteAllDoneItem}
+        />
       </div>
     );
   }
