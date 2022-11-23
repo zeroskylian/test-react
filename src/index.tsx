@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import { Todo } from "./Module/Todo/Todo";
+import { TestErrorBoundaries } from "./Module/Test/Components/TestErrorBoundaries";
 
 export const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -21,7 +21,7 @@ class GetTime extends React.Component {
 
 root.render(
   <React.StrictMode>
-    <Todo />
+    <TestErrorBoundaries />
     <GetTime />
   </React.StrictMode>
 );
