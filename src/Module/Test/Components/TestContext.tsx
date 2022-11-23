@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ThemeContext, ThemeContextInterface } from "../../../Const";
 import { Button } from "antd";
+import { nanoid } from "nanoid";
 
 interface TestContextState {
   value: { value: number };
@@ -11,6 +12,7 @@ export class TestContext extends Component {
   state: TestContextState = { value: { value: 1 }, show: false };
 
   handleChangeValue = () => {
+    console.log('nanoid', nanoid())
     this.setState({ value: { value: 2 } });
   };
 

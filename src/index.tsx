@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import { TestContext } from "./Module/Test/Components/TestContext";
+import { Todo } from "./Module/Todo/Todo";
 
 export const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -21,7 +21,7 @@ class GetTime extends React.Component {
 
 root.render(
   <React.StrictMode>
-    <TestContext />
+    <Todo />
     <GetTime />
   </React.StrictMode>
 );
