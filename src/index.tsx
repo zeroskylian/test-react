@@ -1,28 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import { TestErrorBoundaries } from "./Module/Test/Components/TestErrorBoundaries";
+import TestHOCComponent from "./Module/HOC/TestHOCComponent";
 
 export const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
-class GetTime extends React.Component {
-
-  render() {
-    let date = new Date()
-    return (
-      <div>
-        Time is {date.toTimeString()}
-      </div>
-    );
-  }
-}
-
 root.render(
   <React.StrictMode>
-    <TestErrorBoundaries />
-    <GetTime />
+    <TestHOCComponent />
   </React.StrictMode>
 );
 
