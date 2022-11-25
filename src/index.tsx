@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import TestHOCComponent from "./Module/HOC/TestHOCComponent";
+import { ParentsRef } from "./Module/ForwardRef/ForwardRef";
 
 export const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -9,7 +9,7 @@ export const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <TestHOCComponent />
+    <ParentsRef />
   </React.StrictMode>
 );
 
