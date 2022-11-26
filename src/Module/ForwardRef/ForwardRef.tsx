@@ -1,6 +1,7 @@
 import React, { Component, createRef, forwardRef } from "react";
 
 export class ParentsRef extends Component {
+
   rf? = createRef<HTMLDivElement>();
 
   handleClick = (event: React.FormEvent<HTMLButtonElement>) => {
@@ -14,7 +15,8 @@ export class ParentsRef extends Component {
   render() {
     return (
       <div>
-        <SonFR ref={this.rf} />
+        {/* <SonFR ref={this.rf} /> */}
+        <Son1 r={this.rf!} />
         <button onClick={this.handleClick}>Change</button>
       </div>
     );
@@ -26,6 +28,13 @@ class Son extends Component<{ r: React.ForwardedRef<HTMLDivElement> }> {
     return <div ref={this.props.r}>ForwardRef</div>;
   }
 }
+
+class Son1 extends Component<{ r: React.RefObject<HTMLDivElement> }> {
+  render() {
+    return <div ref={this.props.r}>ForwardRef</div>;
+  }
+}
+
 interface Props {
   children?: React.ReactNode;
 }
