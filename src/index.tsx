@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import { ParentsRef } from "./Module/ForwardRef/ForwardRef";
+import Portals, { PortalsApp } from "./Module/Portals/Portals";
 
 export const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -9,7 +9,8 @@ export const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <ParentsRef />
+    <PortalsApp />
+    <div id="modal-root"></div>
   </React.StrictMode>
 );
 
