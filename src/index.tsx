@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import Portals, { PortalsApp } from "./Module/Portals/Portals";
+import TestHook, { TestUseContext, TestUseEffect, TestUseRedux, TestUseName } from "./Module/HOOK/TestHook";
 
 export const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -9,8 +9,11 @@ export const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <PortalsApp />
-    <div id="modal-root"></div>
+    {/* <TestHook /> */}
+    {/* <TestUseContext /> */}
+    {/* <TestUseEffect name='Jack'/> */}
+    <TestUseName name="Lucy" />
+    {/* <div id="modal-root"></div> */}
   </React.StrictMode>
 );
 
