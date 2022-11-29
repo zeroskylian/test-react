@@ -102,6 +102,20 @@ const useName = (name: string) => {
 export function TestUseName(props: { name: string }) {
   const { name } = props;
   const [username] = useName(name);
-
   return <div>name is {username}</div>;
+}
+
+export function TestEffectCounter() {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCount((c) => {
+        return c + 1;
+      }); 
+    }, 1000);
+    return () => {
+      clearInterval(id); // 不会多次销毁了
+    };
+  }, []);
+  return <h1>{count}</h1>;
 }

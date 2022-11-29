@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import TestHook, { TestUseContext, TestUseEffect, TestUseRedux, TestUseName } from "./Module/HOOK/TestHook";
+// import { TestEffectCounter } from "./Module/HOOK/TestHook";
+import TestAJAX from "./Module/AJAX/TestAJAX";
 
 export const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -9,11 +10,7 @@ export const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    {/* <TestHook /> */}
-    {/* <TestUseContext /> */}
-    {/* <TestUseEffect name='Jack'/> */}
-    <TestUseName name="Lucy" />
-    {/* <div id="modal-root"></div> */}
+    <TestAJAX />
   </React.StrictMode>
 );
 
