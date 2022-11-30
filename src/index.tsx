@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 // import { TestEffectCounter } from "./Module/HOOK/TestHook";
-import TestAJAX from "./Module/AJAX/TestAJAX";
+// import TestAJAX from "./Module/AJAX/TestAJAX";
+import RenderPropsDemo from "./Module/RenderProps/RenderProps";
 
 export const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -10,7 +11,7 @@ export const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <TestAJAX />
+    <RenderPropsDemo />
   </React.StrictMode>
 );
 
