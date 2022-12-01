@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from "react";
-import format from "date-fns/format";
+import React, { useState, useMemo } from 'react';
+import format from 'date-fns/format';
 
 export default function TestMemo() {
   const time = useTime();
@@ -9,7 +9,7 @@ export default function TestMemo() {
   }, [selectedNum]);
   return (
     <React.Fragment>
-      <p className="clock">{format(time, "hh:mm:ss a")}</p>
+      <p className="clock">{format(time, 'hh:mm:ss a')}</p>
       <form>
         <label htmlFor="num">Your number:</label>
         <input
@@ -23,8 +23,8 @@ export default function TestMemo() {
         />
       </form>
       <p>
-        There are {allPrimes.length} prime(s) between 1 and {selectedNum}:{" "}
-        <span className="prime-list">{allPrimes.join(", ")}</span>
+        There are {allPrimes.length} prime(s) between 1 and {selectedNum}:{' '}
+        <span className="prime-list">{allPrimes.join(', ')}</span>
       </p>
     </React.Fragment>
   );
@@ -62,6 +62,6 @@ function calculatePrimes(selectedNum: number) {
       allPrimes.push(counter);
     }
   }
-  console.log("===");
+  console.log('===');
   return allPrimes;
 }
