@@ -1,4 +1,10 @@
-import React, { useState, useContext, useEffect, useReducer } from "react";
+import React, {
+  useState,
+  useContext,
+  useEffect,
+  useReducer,
+  useRef,
+} from "react";
 import { Button } from "antd";
 import { Action } from "redux";
 
@@ -111,11 +117,24 @@ export function TestEffectCounter() {
     const id = setInterval(() => {
       setCount((c) => {
         return c + 1;
-      }); 
+      });
     }, 1000);
     return () => {
       clearInterval(id); // 不会多次销毁了
     };
   }, []);
   return <h1>{count}</h1>;
+}
+
+export function TestuseRef() {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const focusInput = () => {
+    inputRef.current?.focus();
+  };
+  return (
+    <div>
+      <input type="text" ref={inputRef} />
+      <Button onClick={focusInput}>Button</Button>
+    </div>
+  );
 }
