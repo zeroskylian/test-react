@@ -62,6 +62,5 @@ function calculatePrimes(selectedNum: number) {
       allPrimes.push(counter);
     }
   }
-  console.log('===');
   return allPrimes;
 }

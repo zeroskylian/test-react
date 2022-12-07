@@ -5,7 +5,6 @@ export default function TestUseCallbackBetter() {
   const [count, setCount] = React.useState(0);
 
   const handleMegaBoost = React.useMemo(() => {
-    console.log('22');
     return function () {
       setCount((currentValue) => currentValue + 1234);
     };
