@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import PubsubTest from './Module/PubSub';
+import { HashHistoryTest } from './Module/History';
 
 export const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,7 +11,7 @@ export const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <PubsubTest />
+      <HashHistoryTest />
     </BrowserRouter>
   </React.StrictMode>
 );
