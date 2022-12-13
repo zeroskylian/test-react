@@ -134,7 +134,6 @@ interface BoardProps {
 
 class Board extends Component<BoardProps> {
   renderSquare(i: number, winner: number | null) {
-    console.log(i, winner)
     return (
       <Square
         key={i}
