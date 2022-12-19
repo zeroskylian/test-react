@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import { useState, Component } from 'react';
+import './App.css';
 import RouterTest from './components/MultiLevelRouter';
-// import NewTab from './components/NewTab/NewTab';
-// import GridTest from './Module/Grid';
 
 export default class App extends Component {
   render() {
