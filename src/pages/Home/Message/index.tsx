@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
-import ParamsDetail from './ParamsDetail';
-import SearchParams from './SearchDetail';
-import StateParams from './StateDetail/StateParams';
+import { Link, Route } from 'react-router-dom';
+import ParamsDetail, { ParamsDetailHook } from './ParamsDetail';
+import SearchParams, { SearchParamsHook } from './SearchDetail';
+import StateParams, { StateParamsHook } from './StateDetail/StateParams';
 
 export default class Message extends Component {
   render() {
@@ -33,17 +33,23 @@ export default class Message extends Component {
             </Link>
           </li>
         </ul>
-        <Switch>
-          <Route
-            path={'/home/message/paramsdetail/:id/:content'}
-            component={ParamsDetail}
-          />
-          <Route
-            path={'/home/message/searchdetail/'}
-            component={SearchParams}
-          />
-          <Route path={'/home/message/statedetail'} component={StateParams} />
-        </Switch>
+        <Route
+          path={'/home/message/paramsdetail/:id/:content'}
+          component={ParamsDetail}
+        />
+        <Route
+          path={'/home/message/paramsdetail/:id/:content'}
+          component={ParamsDetailHook}
+        />
+
+        <Route path={'/home/message/searchdetail/'} component={SearchParams} />
+        <Route
+          path={'/home/message/searchdetail/'}
+          component={SearchParamsHook}
+        />
+
+        <Route path={'/home/message/statedetail'} component={StateParams} />
+        <Route path={'/home/message/statedetail'} component={StateParamsHook} />
       </div>
     );
   }

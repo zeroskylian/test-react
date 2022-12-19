@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, useParams } from 'react-router-dom';
+import { MessageParams } from '../MessageParams';
 
 export default class ParamsDetail extends Component<
-  RouteComponentProps<{ id: string; content: string }>
+  RouteComponentProps<MessageParams>
 > {
   render() {
     const { id, content } = this.props.match.params;
@@ -15,4 +16,17 @@ export default class ParamsDetail extends Component<
       </div>
     );
   }
+}
+
+export function ParamsDetailHook(props: RouteComponentProps<MessageParams>) {
+  const { id, content } = useParams<MessageParams>();
+  return (
+    <div>
+      <hr />
+      <ul>
+        <li>{id}</li>
+        <li>{content}</li>
+      </ul>
+    </div>
+  );
 }
