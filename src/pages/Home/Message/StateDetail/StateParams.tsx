@@ -19,9 +19,11 @@ export default class StateParams extends Component<
   }
 }
 
-export function StateParamsHook(props: RouteComponentProps<{}, StaticContext, MessageParams>) {
+export function StateParamsHook(
+  props: RouteComponentProps<{}, StaticContext, MessageParams>
+) {
   // const { id, content } = props.location.state;
-  const { id, content } = useLocation<MessageParams>().state
+  const { id, content } = useLocation<MessageParams>().state;
   return (
     <div>
       <hr />
