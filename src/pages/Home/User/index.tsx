@@ -5,6 +5,6 @@ import { Button } from 'antd';
 
 export default class User extends Component {
   render() {
-    return <div>User</div>;
+    return (<div>User</div>);
   }
 }
