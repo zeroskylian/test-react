@@ -1,14 +1,15 @@
 import React, { Component, useEffect, useState } from 'react';
-import './NewTab.css';
+import './index.css';
 import { Input } from 'antd';
 import data from './backups.json';
 
-export default class NewTab extends Component {
+export class NewTab extends Component {
   render() {
+    const placeholder = 'test212221'
     return (
       <div className="container">
-        <img className="logo" src="logo192.png" alt="logo" />
-        <Input className="input" placeholder="inp" />
+        <img className="logo" src="vite.svg" alt="logo" />
+        <Input className="input" placeholder={placeholder} />
         <BookmarkItemList />
       </div>
     );
@@ -18,7 +19,7 @@ export default class NewTab extends Component {
 function BookmarkItemList() {
   const [bookmarkList, setBookmarkList] = useState<BookmarkListItem[]>([]);
   useEffect(() => {
-    let bookmark: BookmarkGroup = data;
+    const bookmark: BookmarkGroup = data;
     setBookmarkList(bookmark.classified);
   }, []);
 

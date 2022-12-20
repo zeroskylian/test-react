@@ -1,12 +1,13 @@
-import React,{ Component } from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import RouterTest from './components/MultiLevelRouter';
+// import RouterTest from './components/MultiLevelRouter';
+import { NewTab } from './components/NewTab';
 
 export default class App extends Component {
   render() {
     return (
-      <RouterTest />
-      // <NewTab />
+      <NewTab />
+      // <RouterTest />
       // <GridTest />
     );
   }
