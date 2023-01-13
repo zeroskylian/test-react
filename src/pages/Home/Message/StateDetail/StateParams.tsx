@@ -4,7 +4,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { MessageParams } from '../MessageParams';
 
 export default class StateParams extends Component<
-  RouteComponentProps<{}, StaticContext, MessageParams>
+  RouteComponentProps<object, StaticContext, MessageParams>
 > {
   render() {
     const { id, content } = this.props.location.state;
@@ -20,7 +20,7 @@ export default class StateParams extends Component<
 }
 
 export function StateParamsHook(
-  props: RouteComponentProps<{}, StaticContext, MessageParams>
+  props: RouteComponentProps<object, StaticContext, MessageParams>
 ) {
   // const { id, content } = props.location.state;
   const { id, content } = useLocation<MessageParams>().state;
