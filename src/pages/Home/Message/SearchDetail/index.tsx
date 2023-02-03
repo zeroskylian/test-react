@@ -4,7 +4,7 @@ import { RouteComponentProps, useLocation } from 'react-router-dom';
 export default class SearchParams extends Component<RouteComponentProps> {
   render() {
     const searchString = this.props.location.search;
-    let sp = new URLSearchParams(searchString);
+    const sp = new URLSearchParams(searchString);
     const id = sp.get('id');
     const content = sp.get('content');
 
@@ -23,7 +23,7 @@ export function SearchParamsHook(props: RouteComponentProps) {
   // 用props 能得到一样的效果么?
   const { search } = useLocation();
   // const search = props.location.search
-  let sp = new URLSearchParams(search);
+  const sp = new URLSearchParams(search);
   const id = sp.get('id');
   const content = sp.get('content');
 
